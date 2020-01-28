@@ -8,32 +8,56 @@ public class MainController {
 
 	@RequestMapping(value="/main.do")
 	public String main(){
-		return "main/index";
+		return "main/main";
 	}
 	
-	@RequestMapping(value="/widgets.do")
-	public String widgets(){
-		return "main/widgets";
+	@RequestMapping(value="/empList.do")
+	public String empList(){
+		return "main/empList.tiles";
 	}
 	
-	@RequestMapping(value="/charts.do")
-	public String charts(){
-		return "main/charts";
+	@RequestMapping(value="/empListDetail.do")
+	public String empListDetail(){
+		return "main/empListDetail.tiles";
 	}
 	
-	@RequestMapping(value="/elements.do")
-	public String elements(){
-		return "main/elements";
+	@RequestMapping(value="/contents.do")
+	public String contents(){
+		return "main/contents.tiles";
 	}
 	
-	@RequestMapping(value="/panels.do")
-	public String panels(){
-		return "main/panels";
+	@RequestMapping(value="/contentsDetail.do")
+	public String contentsDetail(){
+		return "main/contentsDetail.tiles";
 	}
 	
-	@RequestMapping(value="/login.do")
-	public String login(){
-		return "main/login";
+	@RequestMapping(value="/chattingCounseling.do")
+	public String chattingCounseling(){
+		return "main/chattingCounseling.tiles";
 	}
 	
+	@RequestMapping(value="/counselingList.do")
+	public String counselingList(){
+		return "main/counselingList.tiles";
+	}
+	
+	@RequestMapping(value="/chattingList.do")
+	public String chattingList(){
+		return "main/chattingList.tiles";
+	}
+	
+	@RequestMapping(value="/chattingListDetail.do")
+	public String chattingListDetail(){
+		return "main/chattingListDetail.tiles";
+	}
+	
+	@RequestMapping(value="/reservationList.do")
+	public String reservationList(){
+		return "main/reservationList.tiles";
+	}
+	
+	@RequestMapping(value="/reservationListDetail.do")
+	public String reservationListDetail(){
+		return "main/reservationListDetail.tiles";
+	}
 }
