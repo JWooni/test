@@ -148,7 +148,7 @@
 						<div class="form-group" style="background-color:white;height: 700px;">
 							<textarea class="form-control" rows="30" id="commentContent" name="commentContent"></textarea>
 							<textarea class="form-control" rows="2" id="commentContent" name="commentContent"></textarea>
-							<button type="submit" class="btn pull-right">전송</button>
+							<button type="submit" class="btn btn-primary" style="float:right">전송</button>
 						</div>
 				</form>
 			</div>
