@@ -50,13 +50,12 @@
 					<div class="panel-heading">채팅상담</div>
 
 		<div class="row_in">
-			<div class="col-lg-2 col-md-2 col-xs-2" style="background-color:white;height: 800px;">
+			<div class="col-lg-3 col-md-3 col-xs-3" style="background-color:white;height: 800px;">
 				<div class="col-lg-12 col-md-12 col-xs-12" style="background-color:white;height: 800px;">
 				<div class="panel-heading">
 					<h1 class="panel-title"><span class="glyphicon glyphicon-pencil"></span>
 					&nbsp;&nbsp;상담자 리스트</h1>
 				</div>
-				<hr>
 				<table class="table">
 					<thead>
 						<tr>
@@ -87,7 +86,6 @@
 					<h1 class="panel-title"><span class="glyphicon glyphicon-pencil"></span>
 					&nbsp;&nbsp;현재 상담자 리스트</h1>
 				</div>
-				<hr>
 				<table class="table">
 					<thead>
 						<tr>
@@ -116,7 +114,6 @@
 					<h1 class="panel-title"><span class="glyphicon glyphicon-pencil"></span>
 					&nbsp;&nbsp;완료 상담자 리스트</h1>
 				</div>
-				<hr>
 				<table class="table">
 					<thead>
 						<tr>
@@ -141,13 +138,12 @@
 				</table>
 				</div>
 			</div>
-			<div class="col-lg-4 col-md-4 col-xs-4" style="background-color:white;height: 800px;">
+			<div class="col-lg-3 col-md-3 col-xs-3" style="background-color:white;height: 800px;">
 				<div class="col-lg-12 col-md-12 col-xs-12" style="background-color:white;height: 800px;">
 					<div class="panel-heading">
 					<h1 class="panel-title"><span class="glyphicon glyphicon-pencil"></span>
 					&nbsp;&nbsp;채팅 화면</h1>
 				</div>
-				<hr>
 				<form class="form-horizontal" >
 						<div class="form-group" style="background-color:white;height: 700px;">
 							<textarea class="form-control" rows="30" id="commentContent" name="commentContent"></textarea>
@@ -163,7 +159,6 @@
 					<h1 class="panel-title"><span class="glyphicon glyphicon-pencil"></span>
 					&nbsp;&nbsp;현재 상담자 정보</h1>
 				</div>
-				<hr>
 				<table class="table">
 					<tbody>
 						<tr>
@@ -190,16 +185,11 @@
 					<h1 class="panel-title"><span class="glyphicon glyphicon-pencil"></span>
 					&nbsp;&nbsp;상담 결과</h1>
 				</div>
-				<hr>
 				<table class="table">
 					<tbody>
 						<tr>
 							<td><input type="radio" name="result" value="complete">완료</td>
 							<td><input type="radio" name="result" value="Incomplete">미완료</td>
-						</tr>
-						<tr>
-							<td><input type="radio" name="result" value="reservation">예약</td>
-							<td><input type="radio" name="result" value="complaints">민원</td>
 						</tr>
 					</tbody>
 				</table>
@@ -216,7 +206,7 @@
 					</tbody>
 					</table>
 					</div>
-					<button type="submit" class="btn pull-right" style="width:100%;">채팅 종료</button>
+					<button type="submit" class="btn btn-primary" style="width:100%;">채팅 종료</button>
 						</div>
 					</div>
 				</div><!-- /.panel-->
