@@ -53,7 +53,6 @@
           <h1 class="panel-title"><span class="glyphicon glyphicon-pencil"></span>
           &nbsp;&nbsp;상담 신청 리스트</h1>
         </div>
-        <hr>
         <table class="table">
           <thead>
             <tr>
@@ -94,7 +93,6 @@
           <h1 class="panel-title"><span class="glyphicon glyphicon-pencil"></span>
           &nbsp;&nbsp;답변 완료 리스트</h1>
         </div>
-        <hr>
         <table class="table">
           <thead>
             <tr>
@@ -138,7 +136,6 @@
           <h1 class="panel-title"><span class="glyphicon glyphicon-pencil"></span>
           &nbsp;&nbsp;상담 상세 내용</h1>
         </div>
-        <hr>
         <table class="table">
           <tbody>
             <tr>
@@ -153,7 +150,6 @@
               <td>상담내용</td>
               <td></td>
             </tr>
-            <hr>
             <table class="table">
                <tbody>
                  <p>
@@ -173,7 +169,6 @@
           <h1 class="panel-title"><span class="glyphicon glyphicon-pencil"></span>
           &nbsp;&nbsp;답변 내용</h1>
         </div>
-        <hr>
         <table class="table">
           <tbody>
             <p>
@@ -186,8 +181,9 @@
           </tbody>
         </table>
         </div>
-        <button type="submit" class="btn pull-right" style="width:100px; margin-right: 40px">문자전송</button>
-        <button type="submit" class="btn pull-right" style="width:130px; margin-right: 20px">카카오톡 전송</button>
+       <div style="float:right;">
+        <button type="submit" class="btn btn-primary" style="width:100px; margin-right: 20px">문자전송</button>
+        <button type="submit" class="btn btn-primary" style="width:130px; margin-right: 20px">카카오톡 전송</button>
       </div>
   </div>
 		</div><!-- /.panel-->
