@@ -116,7 +116,7 @@
             </ul>
           </div>
           <div class="col-xs-2 col-xs-offset-1">
-            <input class="form-control" type="button" name="st_assign" value="신규등록">
+            <input class="form-control" type="button" name="st_assign" onclick="" value="신규등록">
           </div>
         </div>
         </div>
@@ -128,5 +128,6 @@
 	<script src="js/easypiechart.js"></script>
 	<script src="js/easypiechart-data.js"></script>
 	<script src="js/bootstrap-datepicker.js"></script>
-	<script src="js/custom.js"></script>      
+	<script src="js/custom.js"></script>
+	<script src="js/contents/contents.js"></script>      
   </body>
