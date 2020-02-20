@@ -101,6 +101,7 @@
           </table>
             <div class="pull-right">
            	 <input class="btn btn-primary" type="button" name="st_assign" value="신규등록">
+           	 
           	</div>
         </div>
         <div class="row">
