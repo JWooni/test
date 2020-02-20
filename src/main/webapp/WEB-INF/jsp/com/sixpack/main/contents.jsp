@@ -122,9 +122,6 @@
       			<li><a href="#"><img width= 20px height= 18px src ="./img/right_darrow.png"/></a></li>
             </ul>
           </div>
-          <div class="col-xs-2 col-xs-offset-1">
-            <input class="form-control" type="button" name="st_assign" onclick="" value="신규등록">
-          </div>
         </div>
         </div>
 				</div><!-- /.panel-->
