@@ -100,7 +100,7 @@
             </tbody>
           </table>
             <div class="pull-right">
-           	 <input class="btn btn-primary" type="button" name="st_assign" value="신규등록">
+           	 <input class="btn btn-primary" type="button" name="st_assign" onclick="" value="신규등록">
            	 
           	</div>
         </div>
