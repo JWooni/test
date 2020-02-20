@@ -100,7 +100,7 @@
             </tbody>
           </table>
             <div class="pull-right">
-           	 <input class="btn btn-primary" type="button" name="st_assign" value="신규등록">
+           	 <input class="btn btn-primary" type="button" name="st_assign" onclick="" value="신규등록">
            	 
           	</div>
         </div>
@@ -121,9 +121,6 @@
       			<li class="next"><a href="#"><img width= 20px height= 18px src ="./img/right_arrow.png"/></a></li>
       			<li><a href="#"><img width= 20px height= 18px src ="./img/right_darrow.png"/></a></li>
             </ul>
-          </div>
-          <div class="col-xs-2 col-xs-offset-1">
-            <input class="form-control" type="button" name="st_assign" onclick="" value="신규등록">
           </div>
         </div>
         </div>
