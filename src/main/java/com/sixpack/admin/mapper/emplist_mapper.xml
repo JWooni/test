@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sixpack.admin.mapper.emplist_mapper">
+<resultMap type="com.sixpack.admin.domain.EmpListDomain" id="EmpListInfo">
+	<result column="empSeq" property="empSeq"/>
+	<result column="empId" property="empId"/>
+	<result column="empPwd" property="empPwd"/>
+	<result column="empLevel" property="empLevel"/>
+	<result column="empName" property="empName"/>
+	<result column="joinDate" property="joinDate"/>
+	<result column="empRank" property="empRank"/>
+	<result column="empArea" property="empArea"/>
+	<result column="empCategory" property="empCategory"/>
+</resultMap>
+
+<select id="conTotalCnt" resultType="int">
+	select count(*) cnt 
+	from EMP_LIST
+	where deleted='N'
+</select>
+
+<select id="selectConList" parameterType="com.sixpack.admin.vo.ListVO" resultMap="EmpListInfo">
+	SELECT *
+	from EMP_LIST 
+</select>
+
+</mapper>
