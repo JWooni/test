@@ -1,4 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+
 <body>
 	<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
 		<div class="profile-sidebar">
@@ -72,75 +75,23 @@
 								<th>아이디</th>
 								<th>이름</th>
 								<th>직급</th>
-								<th >지역</th>
+								<th>지역</th>
 								<th>등록일</th>
 							</tr>
 							</thead>
 							<tbody>
-							<tr>
-								<td>1</td>
-								<td><a href="empListDetail.do">lampard</a></td>
-								<td>램반장</td>
-								<td>반장</td>
-								<td>신용산</td>
-								<td>2020-01-03</td>
-							</tr>												
-							<tr>
-								<td>2</td>
-								<td><a href="empListDetail.do">SIXPACK</a></td>
-								<td>근육몬</td>
-								<td>사원</td>
-								<td>신당</td>
-								<td>2020-01-03</td>
-							</tr>
-							<tr>
-								<td>3</td>
-								<td><a href="empListDetail.do">abcdefg</a></td>
-								<td>도라에몽</td>
-								<td>사원</td>
-								<td>신도림</td>
-								<td>2020-01-03</td>
-							</tr>
-							<tr>
-								<td>4</td>
-								<td><a href="empListDetail.do">aaaaaa</a></td>
-								<td>진구</td>
-								<td>사원</td>
-								<td>수지</td>
-								<td>2020-01-03</td>
-							</tr>
-							<tr>
-								<td>5</td>
-								<td><a href="empListDetail.do">study</a></td>
-								<td>송중기</td>
-								<td>대리</td>
-								<td>평양</td>
-								<td>2020-01-03</td>
-							</tr>														
-							<tr>
-								<td>6</td>
-								<td><a href="empListDetail.do">dr</a></td>
-								<td>김대리</td>
-								<td>대리</td>
-								<td>대전</td>
-								<td>2020-01-03</td>
-							</tr>														
-							<tr>
-								<td>7</td>
-								<td><a href="empListDetail.do">Lee</a></td>
-								<td>리신</td>
-								<td>과장</td>
-								<td>북경</td>
-								<td>2020-01-03</td>
-							</tr>														
-							<tr>
-								<td>8</td>
-								<td><a href="empListDetail.do">bogum</a></td>
-								<td>박보검</td>
-								<td>사원</td>
-								<td>제주</td>
-								<td>2020-01-03</td>
-							</tr>														
+							<c:if test="${conList != null}">
+								<c:forEach var="list" items="${conList}" varStatus="status">
+								<tr>
+									<td>${fn:length(conList)-status.index}</td>
+									<td><a href="empListDetail.do"><c:out value="${list.empId}"/></a></td>
+									<td><c:out value="${list.empName}"/></td>
+									<td><c:out value="${list.empRank}"/></td>
+									<td><c:out value="${list.empArea}"/></td>
+									<td><c:out value="${list.joinDate}"/></td>
+								</tr>							
+								</c:forEach>																			
+							</c:if>
 							</tbody>														
 						</table>
 						<div class="panel-body pull-right">
