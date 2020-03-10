@@ -61,7 +61,7 @@
     			<option>상태</option>				  				
 			</select>
 		    <div class="input-group">		    
-		      <input type="text" class="form-control" id="exampleInputAmount" placeholder="">
+		      <input type="text" class="form-control" style="height: 35px;" id="exampleInputAmount" placeholder="">
 		    </div>
 		  </div>
 		  <button type="submit" class="btn btn-primary">검색</button>
@@ -77,7 +77,7 @@
        <tr>
          <th align="left">성별</th>
          <td>여성</td>
-         <td rowspan="5">안녕하세요?
+         <td rowspan="5" style="border: 1px solid #D8D8D8;">안녕하세요?
             제가 식스팩 펫보험을 들고싶은데<br>
             얘는 포메구요 9개월인데요
             강아지 이지만 약간 차은우??를 닮았거든요<br>
@@ -129,16 +129,21 @@
             </textarea>
             </td>
 
-            <th align="left"> 분류 </th>
+            <th align="left" > 분류 </th>
             <td > 펫 </td>
            </tr>
 
            <tr>
-              <th align="left" colspan="2">답변 형태</th>
+              <th align="left" >답변 일시</th>
+              <td >2020-02-22 </td>
            </tr>
 
            <tr>
-              <td colspan="2"> 카카오톡 채팅 전송 </td>
+              <td colspan="2">
+                              <input type="button" class="btn btn-secondary" value=" 취소 " style="margin: 90px 0px 0px 0px;width:50pt;height:30pt;background-color:#BDBDBD">
+              	<input type="button" class="btn btn-success" value=" 수정 " style="margin: 90px 0px 0px 80px;width:50pt;height:30pt;background-color:#5FB404;">
+                <input type="button" class="btn btn-primary" value=" 등록 " style="margin: 90px 0px 0px 0px;width:50pt;height:30pt;">
+              </td>
            </tr>
 
           </tbody>
@@ -150,27 +155,7 @@
     		<col style="width:70%;"/>
     		<col style="width:30%"/>
     	</colgroup>
-        <thead>
-             <tr>
-                <th align="left" colspan="2">추가 답변 진행</th>
-             </tr>
-        </thead>
 
-        <tbody>
-           <tr>
-             <td style="width:500px;">
-               <textarea rows=10 style="text-align:left;width:100%;">이혜진님, 안녕하세요. 펫보험 상담사 최지연입니다.이혜진님이 질문해주신 내용에 대한 추가 답변을 드리겠습니다. 약간 차은우?? 는 5%, 많이 차은우?? 는 10% 할인이 되는 펫 보험 상품이 나왔는데요,관심 있으시다면 참고 부탁드리겠습니다.
-             </textarea> 
-             </td>
-
-              <td align="center">
-                <input type="button" value="카카오톡 전송하기" style="width:100pt;height:20pt;"><br><br>
-                <input type="button" value=" 문자 전송하기 " style="width:100pt;height:20pt;"><br><br>
-                <input type="button" value=" 취소 " style="width:40pt;height:20pt;background-color:#BDBDBD">
-                <input type="button" value=" 등록 " style="width:40pt;height:20pt;background-color:#5FB404;">
-              </td>
-           </tr>
-          </tbody>
         </table>
 
 

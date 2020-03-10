@@ -46,25 +46,28 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="panel panel-default">
-					<div class="panel-heading">콘텐츠 리스트</div>					   	
-        <div class="form-inline">
-          <div class="col-xs-4" >
-              <select class="form-control form-control-sm" name ="cts_sort">
-                <option selected value = "p11_date"> 등록일 </option>
-                <option value = "cts_pdname"> 상품명 </option>
-                <option value = "cts_empname"> 등록자 </option>
+					<div class="panel-heading">콘텐츠 리스트</div>	
+							
+	<form class="form-inline" style="padding-top: 5px; padding-right: 5px;">
+		  <div class="form-group">
+		  	<select class="form-control">                
+		  		<option>등록일 </option>
+                <option>상품명 </option>
+                <option>등록자 </option>
               </select>
-          </div>
-          <div class="col-xs-4 col-xs-offset-4">
-              <select class="form-control form-control-sm" name ="stf_search">
-                <option selected value = "stf_pdname"> 상품명</option>
-                <option value = "stf_date"> 등록일 </option>
-                <option value = "stf_empname"> 등록자 </option>
+          </div>    
+		  <div class="form-group pull-right">          
+              <select class="form-control">
+                <option>상품명</option>
+                <option>등록일 </option>
+                <option>등록자 </option>
               </select>
-                <textarea class="form-control" rows="1" name ="stf_text"> </textarea>
-                <input class="form-control" type="button" name="btn_search" value="검색">
+		    <div class="input-group">		    
+		      <input type="text" class="form-control" id="exampleInputAmount" placeholder="암 보험" style="height: 35px;">
+		    </div>
+		  <button type="submit" class="btn btn-primary">검색</button>
           </div>
-        </div>
+		</form>	
       <div class="row_in">
           <table class="table table-bordered">
             <thead>
@@ -96,6 +99,10 @@
               </tr>
             </tbody>
           </table>
+            <div class="pull-right">
+           	 <input class="btn btn-primary" type="button" name="st_assign" onclick="" value="신규등록">
+           	 
+          	</div>
         </div>
         <div class="row">
           <div class="text-center col-xs-7 col-xs-offset-2">
@@ -115,12 +122,12 @@
       			<li><a href="#"><img width= 20px height= 18px src ="./img/right_darrow.png"/></a></li>
             </ul>
           </div>
-          <div class="col-xs-2 col-xs-offset-1">
-            <input class="form-control" type="button" name="st_assign" onclick="" value="신규등록">
-          </div>
         </div>
         </div>
-      </div>
+				</div><!-- /.panel-->
+			</div><!-- /.col-->
+		</div><!-- /.row -->
+	</div><!--/.main-->
 	<script src="js/jquery-1.11.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/chart.min.js"></script>

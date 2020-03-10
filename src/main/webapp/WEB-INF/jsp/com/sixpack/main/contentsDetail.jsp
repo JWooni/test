@@ -47,73 +47,51 @@
  <div class="row">
 		<div class="col-lg-12">
 			<div class="panel panel-default">
-
+	<hr>
   	<form class="form-horizental">
-			<div class="row row_bottom">
-				<div class="col-sm-2">
-					<label class="control-label" for="prod_title">상품명</label>
-				</div>
-				<div class="col-sm-8">
-					<input type="prod_title" class="form-control" id ="prod_title">
-				</div>
+			<div class="form-group">
+					<label class="control-label" for="prod_title" style="margin-right: 100px;">상품명</label>
+				    <input type="text" class="form-control" placeholder="암 보험" style="width:400px;display:inline-block;"> 
+					<hr>
 			</div>
-			<div class="row row_bottom">
-				<div class="col-sm-2">
-				<label class="control-label2" for="category">카테고리</label>
-				</div>
-				<div class="col-sm-2 offset-sm-2">
-					<select class="selectpicker" name="prod_category">
+			<div class="form-group">
+					<label class="control-label" for="category" style="margin-right: 87px;">카테고리</label>
+				  	<select class="form-control" style="width:400px;display:inline-block;">
 						<option>암보험</option>
 						<option>펫보험</option>
 						<option>자동차보험</option>
 					</select>
-				</div>
+					<hr>
 			</div>
-			<div class="row row_bottom">
-				<div class="col-sm-2">
-				<label class="control-label" for="is_use">사용여부</label>
-				</div>
-				<div class="col-sm-2 offset-sm-2">
+			<div class="form-group">
+				<label class="control-label" for="is_use" style="margin-right: 87px;">사용여부</label>				
 					<label class="radio-inline"><input type="radio" name="use_yes" checked>Y</label>
 					<label class="radio-inline"><input type="radio" name="use_yes" >N</label>
-				</div>
+					<hr>
 			</div>
-			<div class="row row_bottom">
-				<div class="col-sm-2">
-				<label class="control-label" for="prod_context">소개</label>
-				</div>
-					<div class="col-sm-8">
-				 <textarea class="form-control" rows="3" name ="prod_text"> 눈누난냐 </textarea>
-				</div>
+			<div class="form-group">
+				<label class="control-label" for="prod_context" style="margin-right: 116px;">소개</label>				
+				<textarea rows="3" name ="prod_text" style="width:400px; height:200px; display:inline-block;" placeholder="진호형 제가 다 다시 수정합니다."></textarea>
+				 <hr>
 			</div>
-			<div class="row row_bottom">
-				<div class="col-sm-2">
-				<label class="control-label2" for="prod_img">이미지</label>
-				</div>
-					<div class="col-sm-8">
-						<div class="span10 rounded">
-							<img src=".\img\1.png"/>
-						</div>
-				</div>
+			<div class="form-group">
+				<label class="control-label" for="prod_img" style="margin-right: 100px; ">이미지</label>				
+				<img src=".\img\1.png"/>
+				<hr>
 			</div>
-			<div class="row row_bottom">
-				<div class="col-sm-2">
-				<label class="control-label" for="prod_path">이미지 선택</label>
-				</div>
-					<div class="col-sm-8">
-					<input type="prod_path" class="form-control" id ="prod_path">
-				</div>
-				<div class="col-sm-2">
-					<button type="button" class="btn" name="button">파일찾기</button>
-				</div>
+			<div class="form-group">
+				<label class="control-label" for="prod_path" style="margin-right: 60px;">이미지 선택</label>				
+					<input type="text" class="form-control" id ="prod_path" style="width:400px;display:inline-block;">
+					<input type="button" class="btn btn-primary" style="padding: 10px;" value="업로드" onclick=document.all.file.click();> 
+										<hr>
 			</div>
 			<div class="row">
 				<div class="col-sm-2">
 					<button type="button" class="btn btn-danger" name="button">삭제</button>
 				</div>
 				<div class="col-sm-2 col-sm-offset-8">
-						<button type="button" class="btn" name="button">취소</button>
-						<button type="button" class="btn btn-success" name="button">등록</button>
+						<button type="button" class="btn btn-warning" name="button">취소</button>
+						<button type="button" class="btn btn-primary" name="button">등록</button>
 				</div>
 			</div>
 		</form>

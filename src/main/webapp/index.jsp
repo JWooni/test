@@ -2,5 +2,5 @@
 <jsp:forward page="/main.do"/>
 
 
-<!-- git test 최지연 -->
+<!-- git test 김정운 -->
 <!-- git test 김영섭 -->
