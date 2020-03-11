@@ -18,13 +18,13 @@
          </div>
       </form>
       <ul class="nav menu">
-			<li class="active"><a href="empList.do"><em class="fa fa-dashboard">&nbsp;</em> 상담사 관리</a></li>
-			<li><a href="contents.do"><em class="fa fa-calendar">&nbsp;</em> 콘텐츠 관리</a></li>
-			<li><a href="chattingCounseling.do"><em class="fa fa-bar-chart">&nbsp;</em> 상담 관리</a></li>
-			<li><a href="counselingList.do"><em class="glyphicon glyphicon-tags">&nbsp;</em>상담 내역</a></li>
-			<li><a href="chattingList.do"><em class="fa fa-toggle-off">&nbsp;</em> 채팅 내역 관리</a></li>
-			<li class="active"><a href="reservationList.do"><em class="fa fa-clone">&nbsp;</em> 예약 내역 관리</a></li>
-	        <li><a href="main.do"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
+         <li class="active"><a href="empList.do"><em class="fa fa-dashboard">&nbsp;</em> 상담사 관리</a></li>
+         <li><a href="contents.do"><em class="fa fa-calendar">&nbsp;</em> 콘텐츠 관리</a></li>
+         <li><a href="chattingCounseling.do"><em class="fa fa-bar-chart">&nbsp;</em> 상담 관리</a></li>
+         <li><a href="counselingList.do"><em class="glyphicon glyphicon-tags">&nbsp;</em>상담 내역</a></li>
+         <li><a href="chattingList.do"><em class="fa fa-toggle-off">&nbsp;</em> 채팅 내역 관리</a></li>
+         <li class="active"><a href="reservationList.do"><em class="fa fa-clone">&nbsp;</em> 예약 내역 관리</a></li>
+           <li><a href="main.do"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
       </ul>
    </div><!--/.sidebar-->
       
@@ -61,7 +61,7 @@
              <option>상태</option>                          
          </select>
           <div class="input-group">          
-            <input type="text" class="form-control" id="exampleInputAmount" placeholder="우거지">
+            <input type="text" class="form-control" style="width: 150px;height: 35px;" "id="exampleInputAmount" placeholder="우거지">
           </div>
         </div>
         <button type="submit" class="btn btn-primary">검색</button>
