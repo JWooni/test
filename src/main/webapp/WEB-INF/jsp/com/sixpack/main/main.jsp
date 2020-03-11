@@ -21,17 +21,20 @@
 					<form role="form">
 						<fieldset>
 							<div class="form-group">
-								<input class="form-control" placeholder="Id" name="id" type="id" autofocus="">
+								<input class="form-control" placeholder="Id" name="ID" type="ID" autofocus="">
 							</div>
 							<div class="form-group">
-								<input class="form-control" placeholder="Password" name="password" type="password" value="">
+								<input class="form-control" placeholder="Password" name="PW" type="PW" value="">
 							</div>
 							<div class="checkbox">
 								<label>
 									<input name="remember" type="checkbox" value="Remember Me">Remember Me
 								</label>
 							</div>
-							<a href="empList.do" class="btn btn-primary">Login</a></fieldset>
+							
+						<!-- 	<button type="button" id="btnLogin" class="btn btn-primary">login</button> -->
+						<a href="empList.do" class="btn btn-primary">Login</a></fieldset>
+						
 					</form>
 				</div>
 			</div>

@@ -50,16 +50,16 @@
 		               <tbody>
 		                  <tr>
 		                     <td><h5>회원 이름</h5></td>
-		                     <td><input type="text" class="form-control" readonly style = "width : 90%; background-color:#EEE;margin-left:2%"></td>
+		                     <td><input type="text" class="form-control" readonly style = "width : 40%; background-color:#EEE;margin-left:1%"></td>
 		                  </tr>
 		                  <tr>
 											<td><h5>상담사 이름</h5></td>
-										 <td><input type="text" class="form-control" readonly style = "width : 90%; background-color:#EEE; margin-left:2%"></td>
+										 <td><input type="text" class="form-control" readonly style = "width : 40%; background-color:#EEE; margin-left:1%"></td>
 									</tr>
 		              <tr>
 		                     <td><h5>카테고리</h5></td>
                                 <td>
-		                        <select class="form-control" style="margin-left: 1em; width: 90%" >
+		                        <select class="form-control" style="margin-left: 1em; width: 40%" >
                                 <option value="">암보험</option>
 		                        <option value="">회원이름</option>
 		                        <option value="">상담사이름</option>
@@ -79,12 +79,12 @@
 		                  </tr>
 		                  <tr>
 		                     <td><h5>채팅 내용</h5></td>
-		                     <td><textarea style="margin-left: 1em; width: 90%;"  class="form-control" cols = "80" rows="5" id="commentContent" name="commentContent" ></textarea></td>
+		                     <td><textarea style="margin-left: 1em; width: 61%;"  class="form-control" cols = "80" rows="5" id="commentContent" name="commentContent" ></textarea></td>
 		                  </tr>
 		               </tbody>
 		            </table>
-		<button type="button" class="btn btn-md btn-danger" onclick = "alert('삭제되었습니다.')">삭제</button>
-		<button type="button" class="btn btn-md btn-default"onclick = "alert('취소되었습니다.')" style = "margin-left:76%;">취소</button>
+		<button type="button" class="btn btn-md btn-danger" onclick = "alert('삭제되었습니다.')" style = "margin-left:14%;">삭제</button>
+		<button type="button" class="btn btn-md btn-default"onclick = "alert('취소되었습니다.')" style = "margin-left:38%;">취소</button>
   	<button type="button" class="btn btn-md btn-success"onclick = "alert('수정 완료')">수정</button>
 
 				</div><!-- /.panel-->
