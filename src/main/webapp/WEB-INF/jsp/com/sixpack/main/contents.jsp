@@ -1,4 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" %>
+<%@ taglib prefix="c"   uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
   <body>
 	<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
 		<div class="profile-sidebar">
@@ -46,34 +49,33 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="panel panel-default">
-					<div class="panel-heading">콘텐츠 리스트</div>	
-							
-	<form class="form-inline" style="padding-top: 5px; padding-right: 5px;">
-		  <div class="form-group">
-		  	<select class="form-control">                
-		  		<option>등록일 </option>
-                <option>상품명 </option>
-                <option>등록자 </option>
-              </select>
-          </div>    
-		  <div class="form-group pull-right">          
-              <select class="form-control">
-                <option>상품명</option>
-                <option>등록일 </option>
-                <option>등록자 </option>
-              </select>
-		    <div class="input-group">		    
-		      <input type="text" class="form-control" id="exampleInputAmount" placeholder="암 보험" style="height: 35px;">
-		    </div>
-		  <button type="submit" class="btn btn-primary">검색</button>
+					<div class="panel-heading">콘텐츠 리스트</div>
+					<p style="color: #000000;">Total: <span id="count">${total}</span></p>					   	
+        <div class="form-inline">
+          <div class="col-xs-4" >
+
           </div>
-		</form>	
+          <div class="col-xs-4 col-xs-offset-4" style="margin-bottom: 22px;">
+          	<form  id="searchForm" name="searchForm" method="post">
+          	
+          		<input type="hidden" id="pageNo" name="pageNo" value="${pageNo }">
+          	
+              <select class="form-control form-control-sm" name ="searchType" id="searchType">
+              	<!-- <option value="Everything">전체</option> -->
+                <option value = "title"> 상품명</option>
+                <option value = "day"> 등록일 </option>
+                <option value = "name"> 등록자 </option>
+              </select>
+                <input type="text" class="form-control form-control-sm" name="keyword" id="keyword" style="height: 34px">
+                <button class="btn btn-primary" style="color: white; margin-right: 0px;" onclick="javascript:selectListAction('contents.do');">검색</button>
+            </form>
+          </div>
+        </div>
       <div class="row_in">
           <table class="table table-bordered">
             <thead>
               <tr>
                 <th>No</th>
-                <th>이미지</th>
                 <th>상품명</th>
                 <th>소개</th>
                 <th>등록자</th>
@@ -81,53 +83,63 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>1</td>
-                <td><a href="contentsDetail.do"><img src =".\img\1.png"/></a></td>
-                <td id = "product_title">암 보험</td>
-                <td id = "product_contents">암 진단비 감액 없이 91일 부터 바로 100% 보장</td>
-                <td>최금강</td>
-                <td>19.01.12</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td><a href="contentsDetail.do"><img src =".\img\1.png"/></a></td>
-                <td id = "product_title">암 보험</td>
-                <td id = "product_contents">암 진단비 감액 없이 91일 부터 바로 100% 보장</td>
-                <td>금강맘</td>
-                <td>19.01.14</td>
-              </tr>
+	            <c:choose>
+						<c:when test="${fn:length(contentList) > 0}">
+						 	<c:forEach var="list" items="${contentList}">
+								<tr>
+									<td style="width: 81px;">${list.productSeq}</td>
+									<td style = "cursor:pointer; width: 109px;" onClick = " location.href='http://localhost:8080/webProject/contentsDetail.do?seq=${list.productSeq }' ">${list.prodName}</td>
+									<td style="width: 654px;">${list.prodIntroduce}</td>
+									<td style="width: 153px;">${list.empId}</td>
+									<td style="width: 160px;">${list.prodRegtdate}</td>
+								</tr>
+							</c:forEach>
+						</c:when>
+						<c:otherwise>
+							<tr>
+								<td colspan="5" class="com_table_board-info">
+									검색결과가 없습니다.
+								</td>
+							</tr>
+						</c:otherwise>
+					</c:choose>
+             
             </tbody>
           </table>
-            <div class="pull-right">
-           	 <input class="btn btn-primary" type="button" name="st_assign" onclick="" value="신규등록">
-           	 
-          	</div>
         </div>
-        <div class="row">
-          <div class="text-center col-xs-7 col-xs-offset-2">
-            <ul class="pagination justify-content-center">
-      			<li><a href="#"><img width= 20px height= 18px src =".\img\left_darrow.png"/></a></li>
-      			<li class="previous"><a href="#"><img width= 20px height= 18px src =".\img\left_arrow.png"/></a></li>
-      			<li><a href="#">1</a></li>
-      			<li class="active"><a href="#">2</a></li>
-      			<li><a href="#">3</a></li>
-      			<li><a href="#">4</a></li>
-      			<li><a href="#">5</a></li>
-      			<li><a href="#">6</a></li>
-      			<li><a href="#">7</a></li>
-      			<li><a href="#">8</a></li>
-      			<li><a href="#">9</a></li>
-      			<li class="next"><a href="#"><img width= 20px height= 18px src ="./img/right_arrow.png"/></a></li>
-      			<li><a href="#"><img width= 20px height= 18px src ="./img/right_darrow.png"/></a></li>
-            </ul>
-          </div>
+        
+        <a href="writecontent.do" style="float:right; margin-right:18px;" class="btn btn-primary">등록</a>
+        
+        <!-- pagination{s} -->
+			<div id="paginationBox" style="padding-left: 140px">
+				<ul class="pagination">
+					<c:if test="${pagination.prev}">
+						<li class="page-item"><a class="page-link"
+							style="background: " href="#"
+							onClick="fn_prev('${pagination.page}', '${pagination.range}', '${pagination.rangeSize}')">Previous</a>
+						</li>
+					</c:if>
+					<c:forEach begin="${pagination.startPage}"
+						end="${pagination.endPage}" var="idx">
+						<li
+							class="page-item <c:out value="${pagination.page == idx ? 'active' : ''}"/> ">
+							<a class="page-link" style="background: " href="#"
+							onClick="fn_pagination('${idx}', '${pagination.range}', '${pagination.rangeSize}')">
+								${idx} </a>
+						</li>
+					</c:forEach>
+					<c:if test="${pagination.next}">
+						<li class="page-item"><a class="page-link" href="#"
+							style="background: "
+							onClick="fn_next('${pagination.range}', 
+						'${pagination.range}', '${pagination.rangeSize}')">Next</a></li>
+					</c:if>
+				</ul>
+			</div>
+<!--pagination{e}  -->
+        
         </div>
-        </div>
-				</div><!-- /.panel-->
-			</div><!-- /.col-->
-		</div><!-- /.row -->
-	</div><!--/.main-->
+      </div>
 	<script src="js/jquery-1.11.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/chart.min.js"></script>
@@ -138,3 +150,75 @@
 	<script src="js/custom.js"></script>
 	<script src="js/contents/contents.js"></script>      
   </body>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script>
+//이전 버튼 이벤트
+
+  function fn_prev(page, range, rangeSize) {	//현재 목록의 페이지 번호,각 페이지의 시작 번호,페이지당 게시글 갯수 =10으로 초기화
+  	var page = ((range - 2) * rangeSize) + 1;
+  	var range = range - 1;
+  	var url = "${pageContext.request.contextPath}/contents.do";
+
+  	url = url + "?page=" + page;
+  	url = url + "&range=" + range;
+
+  	location.href = url;
+  }
+  //페이지 번호 클릭
+
+  function fn_pagination(page, range, rangeSize, searchType, keyword) { 	//현재 목록의 페이지 번호,각 페이지의 시작 번호,페이지당 게시글 갯수 =10으로 초기화,게시글 검색 시 검색 타입 목록,검색 단어
+  	var url = "${pageContext.request.contextPath}/contents.do";
+  	url = url + "?page=" + page;
+  	url = url + "&range=" + range;
+  	location.href = url;	
+  }
+
+  //다음 버튼 이벤트
+  function fn_next(page, range, rangeSize) {	//현재 목록의 페이지 번호,각 페이지의 시작 번호,페이지당 게시글 갯수 =10으로 초기화
+  	var page = parseInt((range * rangeSize)) + 1;
+  	var range = parseInt(range) + 1;
+  	var url = "${pageContext.request.contextPath}/contents.do";
+
+  	url = url + "?page=" + page;
+  	url = url + "&range=" + range;
+  	
+  	location.href = url;
+  }
+
+  $(document).on('click', '#btnSearch', function(e){
+
+  	e.preventDefault();
+
+  	var url = "${pageContext.request.contextPath}/contents.do";
+  	url = url + "?searchType=" + $('#searchType').val();
+  	url = url + "&keyword=" + $('#keyword').val();
+  	location.href = url;
+  	console.log(url);
+
+  });
+
+  //페이지 이동(아직 사용안함)
+  function moveToPage(page){
+  	  //alert('1');
+  	  var f = $("#listvlaue");
+  	  console.log("f : " + $("#listvlaue").serialize());
+  	  f.action = page;
+  	  $("#listvlaue").attr("action",page);
+  	  console.log( $("#listvlaue").attr("action"));
+  	  //debugger;
+  	  f.submit();
+  	}
+
+  function selectListAction(page) {
+		
+	  var f = $("#searchForm");	  
+	  console.log("f : " + $("#searchForm").serialize());
+	  f.action = page;
+	  $("#searchForm").attr("action",page);
+	  console.log( $("#searchForm").attr("action"));
+	  //debugger;
+	  f.submit();
+	
+
+}
+  </script>
