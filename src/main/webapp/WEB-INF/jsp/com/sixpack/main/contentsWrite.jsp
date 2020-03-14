@@ -48,7 +48,7 @@
 		<div class="col-lg-12">
 			<div class="panel panel-default">
 
-  	<form class="form-horizental" name="insertcontent" id="insertcontent" method="POST" action="">
+  	<form class="form-horizental" name="insertcontent" id="insertcontent" method="POST" enctype="multipart/form-data" action="insertcontent.do">
 			<div class="row row_bottom">
 				<div class="col-sm-2">
 					<label class="control-label" for="prod_title">상품명</label>
@@ -86,31 +86,22 @@
 				 <textarea class="form-control" rows="3" name="prodIntroduce" id="prodIntroduce"></textarea>
 				</div>
 			</div>
-			<div class="row row_bottom">
-				<div class="col-sm-2">
-				<label class="control-label2" for="prod_img">이미지</label>
-				</div>
-					<div class="col-sm-8">
-						<div class="span10 rounded">
-							<img src=".\img\1.png"/>
-						</div>
-				</div>
-			</div>
+			
 			<div class="row row_bottom">
 				<div class="col-sm-2">
 				<label class="control-label" for="prod_path">이미지 선택</label>
 				</div>
-					<div class="col-sm-8">
+				<!-- 	<div class="col-sm-8">
 					<input type="prod_path" class="form-control" id ="prod_path">
-				</div>
+				</div> -->
 				<div class="col-sm-2">
-					<button type="button" class="btn" name="button">파일찾기</button>
+					<input type="file" name="file">
 				</div>
 			</div>
 			<div class="row">
 				<div style="padding: 12px; float: right; margin-right: 20px;">
 						<a href="contents.do" onclick="" class="btn btn-primary" >목록</a>
-						<button type="button" class="btn btn-success" id="btninsert">등록</button>
+						<button type="submit" class="btn btn-success" id="btninsert">등록</button>
 				</div>
 			</div>
 		</form>
@@ -121,8 +112,32 @@
 </body>
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <script>
+/* 
+$(document).ready(function(){
+	var formObj = $("form[name='insertcontent']");
+	$("#btninsert").on("click", function(){
+		if(fn_valiChk()){
+			return false;
+		}
+		formObj.attr("action", "insertcontent.do");
+		formObj.attr("method", "post");
+		formObj.submit();
+	});
+})
+function fn_valiChk(){
+	var regForm = $("form[name='writeForm'] .chk").length;
+	for(var i = 0; i<regForm; i++){
+		if($(".chk").eq(i).val() == "" || $(".chk").eq(i).val() == null){
+			alert($(".chk").eq(i).attr("title"));
+			return true;
+		}
+	}
+} */
 
 $("#btninsert").click(function(){
+
+	//preventDefault 는 기본으로 정의된 이벤트를 작동하지 못하게 하는 메서드이다. submit을 막음
+   // event.preventDefault();
 	
 	var confirm1 = confirm("등록하시겠습니까?");			
 		//alert('1');
@@ -130,6 +145,7 @@ $("#btninsert").click(function(){
 			url : 'insertcontent.do',
 			type : 'POST',
 			data : $('#insertcontent').serialize() ,
+			enctype: 'multipart/form-data',
 				success : function(data){
 					console.log('게시글 등록 성공');
 					alert('등록을 완료하였습니다.');

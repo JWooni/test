@@ -1,7 +1,7 @@
 package com.sixpack.chat.admin.vo;
 
 public class ContentVO {
-	private int productSeq;
+	private int productSeq;			//상품 번호
 	private String prodCategory;	//삼품 카테고리
 	private String prodIntroduce;	//상품 소개
 	private String prodRegtdate;

@@ -51,6 +51,8 @@
 			<div class="panel panel-default">
 
   	<form class="form-horizental" name="updatecontent" id="updatecontent" method="POST" action="">
+  			
+  			<input type="hidden" id="FILE_NO" name="FILE_NO" value="">
   			<input type="hidden" name="productSeq" id="productSeq" value="${list.productSeq }" >
 			<div class="row row_bottom">
 				<div class="col-sm-2">
@@ -111,21 +113,13 @@
 				<div class="col-sm-2">
 				<label class="control-label2" for="prod_img">이미지</label>
 				</div>
-					<div class="col-sm-8">
-						<div class="span10 rounded">
-							<img src=".\img\1.png"/>
-						</div>
-				</div>
-			</div>
-			<div class="row row_bottom">
-				<div class="col-sm-2">
-				<label class="control-label" for="prod_path">이미지 선택</label>
-				</div>
-					<div class="col-sm-8">
-					<input type="prod_path" class="form-control" id ="prod_path">
-				</div>
-				<div class="col-sm-2">
-					<button type="button" class="btn" name="button">파일찾기</button>
+				<div class="col-sm-8">
+					<!-- <div class="form-group" style="border: 1px solid #dbdbdb;"> -->
+				<c:forEach var="file" items="${file}">
+					<a href="#" onclick="fn_fileDown('${file.FILE_NO}'); return false;">${file.ORG_FILE_NAME}</a>(${file.FILE_SIZE}kb)<br>
+					<img src="img/5da4d570ebb347c5b1ba1f4de322ac52.png" style="width: 500px;">
+				</c:forEach>
+					<!-- </div> -->
 				</div>
 			</div>
 			<div class="row">
@@ -200,4 +194,11 @@ $("#btndelete").click(function(){
 			});
 		
 	});
+
+function fn_fileDown(fileNo){
+	var formObj = $("form[name='updatecontent']");
+	$("#FILE_NO").attr("value", fileNo);
+	formObj.attr("action", "fileDown.do");
+	formObj.submit();
+}
 </script>

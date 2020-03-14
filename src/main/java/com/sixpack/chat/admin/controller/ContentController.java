@@ -1,5 +1,12 @@
 package com.sixpack.chat.admin.controller;
 
+import java.io.File;
+import java.net.URLEncoder;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -7,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.sixpack.chat.admin.service.ContentService;
@@ -23,13 +31,15 @@ public class ContentController {
 	//컨텐츠 등록
 	@ResponseBody
 	@RequestMapping(value="/insertcontent.do", method=RequestMethod.POST)
-	public void insertcontent(@ModelAttribute ContentVO contentvo) throws Exception{
+	public void insertcontent(@ModelAttribute ContentVO contentvo, MultipartHttpServletRequest mpRequest) throws Exception{
 		System.out.println("insertcontent()");
+		
 		System.out.println(contentvo.getProdName());
 		System.out.println(contentvo.getProdCategory());
 		System.out.println(contentvo.getProdIntroduce());
 		System.out.println(contentvo.getUseStatus());
-		contentservice.insertcontent(contentvo);
+		
+		contentservice.insertcontent(contentvo,mpRequest);
 	}
 	
 	
@@ -98,14 +108,48 @@ public class ContentController {
 	}
 	
 	//컨텐츠 자세히보기
-		@RequestMapping(value="/contentsDetail.do")
-		public ModelAndView contentsDetail(@RequestParam("seq")int seq) throws Exception{
-			System.out.println("contentsDetail()");
-			ModelAndView mv = new ModelAndView();
-			
-			mv.setViewName("main/contentsDetail.tiles");
-			mv.addObject("list", contentservice.viewDetail(seq));
-			
-			return mv;
-		}
+	@RequestMapping(value="/contentsDetail.do")
+	public ModelAndView contentsDetail(@RequestParam("seq")int seq) throws Exception{
+		System.out.println("contentsDetail()");
+		ModelAndView mv = new ModelAndView();
+		
+		mv.setViewName("main/contentsDetail.tiles");
+		mv.addObject("list", contentservice.viewDetail(seq));
+		
+		List<Map<String,Object>> fileList = contentservice.selectFileList(seq);
+		mv.addObject("file", fileList);
+
+		System.out.println(fileList);
+		
+		return mv;
+	}
+	
+	//첨부파일 다운로드
+	@RequestMapping(value="/fileDown.do")
+	public void fileDown(@RequestParam Map<String, Object> map, HttpServletResponse response) throws Exception{
+		
+		System.out.println("fileDown()");
+		
+		Map<String, Object> resultMap = contentservice.selectFileInfo(map);
+		System.out.println(resultMap);
+		
+		String storedFileName = (String) resultMap.get("STORED_FILE_NAME");
+		String originalFileName = (String) resultMap.get("ORG_FILE_NAME");
+		
+		
+		System.out.println("storedFileName : "+storedFileName);
+		System.out.println("originalFileName : "+originalFileName);
+		
+		// 파일을 저장했던 위치에서 첨부파일을 읽어 byte[]형식으로 변환한다.
+		byte fileByte[] = org.apache.commons.io.FileUtils.readFileToByteArray(new File("C:\\airplane\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\SIXPACK_insurance\\WEB-INF\\file\\"+storedFileName));
+		
+		response.setContentType("application/octet-stream");
+		response.setContentLength(fileByte.length);
+		response.setHeader("Content-Disposition",  "attachment; fileName=\""+URLEncoder.encode(originalFileName, "UTF-8")+"\";");
+		response.getOutputStream().write(fileByte);
+		response.getOutputStream().flush();
+		response.getOutputStream().close();
+		
+	}
+	
 }

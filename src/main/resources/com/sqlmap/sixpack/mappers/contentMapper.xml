@@ -57,19 +57,39 @@
 	]]>
 </select>
 
+<select id="selectFileList" parameterType="int" resultType="hashMap">
+/** [contentMapper.xml][com.sixpack.chat.service.contentMapper.selectFileList][첨부파일 조회] **/
+	SELECT FILE_NO, ORG_FILE_NAME, ROUND(FILE_SIZE/1024,1) AS FILE_SIZE, STORED_FILE_NAME
+	FROM MP_FILE
+	WHERE productSeq = #{productSeq} AND DEL_GB = 'N'
+</select>
 
+<select id="selectFileInfo" parameterType="hashMap" resultType="hashMap">
+/** [contentMapper.xml][com.sixpack.chat.service.contentMapper.selectFileList][첨부파일 다운로드] **/
+	SELECT STORED_FILE_NAME, ORG_FILE_NAME
+	FROM MP_FILE
+	WHERE FILE_NO = #{FILE_NO}
+</select>
 	
 <!-- **************** -->
 <!-- INSERT SECTION -->
 <!-- **************** -->
 
 
-<insert id="insertcontent" parameterType="contentVO">	
-	/** [contentMapper.xml][com.sixpack.chat.service.contentMapper.insertcontent][컨텐츠 등록] **/
+<insert id="insertcontent" parameterType="contentVO" useGeneratedKeys="true" keyProperty="productSeq">	
+/** [contentMapper.xml][com.sixpack.chat.service.contentMapper.insertcontent][컨텐츠 등록] **/
 	insert into PRODUCT_LIST(prodName, prodCategory, useStatus, prodIntroduce,prodRegtdate,empId,empName)
 	values (#{prodName},#{prodCategory},#{useStatus},#{prodIntroduce},Now(),'soo','쑤니')
 </insert>
 
+<insert id="insertFile" parameterType="hashMap" useGeneratedKeys="true" keyProperty="productSeq">
+/** [contentMapper.xml][com.sixpack.chat.service.contentMapper.insertFile][첨부파일 등록] **/
+		<selectKey keyProperty="productSeq" resultType="int" order="BEFORE">
+	    	SELECT MAX(productSeq) FROM PRODUCT_LIST
+	  	</selectKey>
+		INSERT INTO MP_FILE(productSeq, ORG_FILE_NAME, STORED_FILE_NAME, FILE_SIZE,REGDATE)
+		VALUES(#{productSeq},#{ORG_FILE_NAME},#{STORED_FILE_NAME},#{FILE_SIZE},now())
+    </insert>
 	
 	
 <!-- **************** -->
