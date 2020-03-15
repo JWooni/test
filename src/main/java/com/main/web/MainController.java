@@ -21,11 +21,7 @@ public class MainController {
 	public String empListDetail(){
 		return "main/empListDetail.tiles";
 	}
-	
-	
-	
-	
-	
+
 	@RequestMapping(value="/chattingCounseling.do")
 	public String chattingCounseling(){
 		return "main/chattingCounseling.tiles";
@@ -55,7 +51,4 @@ public class MainController {
 	public String reservationListDetail(){
 		return "main/reservationListDetail.tiles";
 	}
-	
-	
-	
 }

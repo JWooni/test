@@ -18,22 +18,22 @@
 			<div class="login-panel panel panel-default">
 				<div class="panel-heading">Log in</div>
 				<div class="panel-body">
-					<form role="form">
+					<form role="form" action="login.do" method="POST">
 						<fieldset>
 							<div class="form-group">
-								<input class="form-control" placeholder="Id" name="ID" type="ID" autofocus="">
+								<input class="form-control" placeholder="Id" name="userId" type="text" autofocus="">
 							</div>
 							<div class="form-group">
-								<input class="form-control" placeholder="Password" name="PW" type="PW" value="">
+								<input class="form-control" placeholder="Password" name="userPw" type="password" value="">
 							</div>
 							<div class="checkbox">
 								<label>
-									<input name="remember" type="checkbox" value="Remember Me">Remember Me
+									<input name="rememberInfo" type="checkbox" value="Y">Remember ID
 								</label>
 							</div>
 							
-						<!-- 	<button type="button" id="btnLogin" class="btn btn-primary">login</button> -->
-						<a href="empList.do" class="btn btn-primary">Login</a></fieldset>
+						 	<button type="submit" id="btnLogin" class="btn btn-primary" style="width:100%;" >Login</button> 
+						<!-- <a href="empList.do" class="btn btn-primary">Login</a> 민슬기사랑해 --> </fieldset>
 						
 					</form>
 				</div>
