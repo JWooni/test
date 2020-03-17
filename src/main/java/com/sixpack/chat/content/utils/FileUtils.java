@@ -16,7 +16,7 @@ import com.sixpack.chat.admin.vo.ContentVO;
 
 @Component("fileUtils")
 public class FileUtils {
-private static final String filePath = "C:\\six\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\SIXPACK_insurance\\img\\"; // 파일이 저장될 위치
+private static final String filePath = "C:\\Users\\sksms\\git\\SIXPACK_insurance\\src\\main\\webapp\\img\\"; // 파일이 저장될 위치
 	
 	public List<Map<String, Object>> parseInsertFileInfo(ContentVO contentvo, 
 			MultipartHttpServletRequest mpRequest) throws Exception{

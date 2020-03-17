@@ -141,6 +141,7 @@ $("#btninsert").click(function(){
 	
 	var confirm1 = confirm("등록하시겠습니까?");			
 		//alert('1');
+	if(confirm1 == 1){
 		$.ajax({
 			url : 'insertcontent.do',
 			type : 'POST',
@@ -164,6 +165,6 @@ $("#btninsert").click(function(){
 					
 						
 			});
-		
+		}
 	});
 </script>

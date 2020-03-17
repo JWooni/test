@@ -36,15 +36,9 @@ public class MainController {
 		return "main/counselingList.tiles";
 	}
 	
-	@RequestMapping(value="/chattingList.do")
-	public String chattingList(){
-		return "main/chattingList.tiles";
-	}
+
 	
-	@RequestMapping(value="/chattingListDetail.do")
-	public String chattingListDetail(){
-		return "main/chattingListDetail.tiles";
-	}
+
 	
 	@RequestMapping(value="/reservationList.do")
 	public String reservationList(){

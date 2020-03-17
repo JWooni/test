@@ -117,7 +117,7 @@
 					<!-- <div class="form-group" style="border: 1px solid #dbdbdb;"> -->
 				<c:forEach var="file" items="${file}">
 					<a href="#" onclick="fn_fileDown('${file.FILE_NO}'); return false;">${file.ORG_FILE_NAME}</a>(${file.FILE_SIZE}kb)<br>
-					<img src="img/5da4d570ebb347c5b1ba1f4de322ac52.png" style="width: 500px;">
+					<img src="img/877a1897649e4054935054a23eee1e0e.png" style="width: 500px;">
 				</c:forEach>
 					<!-- </div> -->
 				</div>
@@ -141,6 +141,7 @@ $("#btnupdate").click(function(){
 	
 		var confirm1 = confirm("수정하시겠습니까?");			
 			//alert('1');
+		if(confirm1 == 1){
 			$.ajax({
 				url : 'updatecontent.do',
 				type : 'POST',
@@ -163,13 +164,14 @@ $("#btnupdate").click(function(){
 						
 							
 				});
-			
+			}
 		});
 
 $("#btndelete").click(function(){
 	
 	var confirm1 = confirm("삭제하시겠습니까?");			
 		//alert('1');
+	if(confirm1 == 1){
 		$.ajax({
 			url : 'deletecontent.do',
 			type : 'POST',
@@ -192,7 +194,7 @@ $("#btndelete").click(function(){
 					
 						
 			});
-		
+		}
 	});
 
 function fn_fileDown(fileNo){
