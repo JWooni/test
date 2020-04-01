@@ -2,8 +2,7 @@ package com.main.web;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import static org.springframework.web.bind.annotation.RequestMethod.GET;
-import static org.springframework.web.bind.annotation.RequestMethod.POST;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class MainController {
@@ -12,28 +11,20 @@ public class MainController {
 	public String main(){
 		return "main/main";
 	}
-/*	
-	@RequestMapping(value="/empList.do", method={GET,POST})
+	
+	@RequestMapping(value="/empList.do")
 	public String empList(){
 		return "main/empList.tiles";
 	}
-	*/
-/*	
- * @RequestMapping(value="/empListDetail.do")
+	
+	@RequestMapping(value="/empListDetail.do")
 	public String empListDetail(){
 		return "main/empListDetail.tiles";
 	}
-	*/
 	
-	@RequestMapping(value="/contents.do")
-	public String contents(){
-		return "main/contents.tiles";
-	}
 	
-	@RequestMapping(value="/contentsDetail.do")
-	public String contentsDetail(){
-		return "main/contentsDetail.tiles";
-	}
+	
+	
 	
 	@RequestMapping(value="/chattingCounseling.do")
 	public String chattingCounseling(){
@@ -64,4 +55,7 @@ public class MainController {
 	public String reservationListDetail(){
 		return "main/reservationListDetail.tiles";
 	}
+	
+	
+	
 }

@@ -83,7 +83,7 @@ function goAdd(){
 								<th>아이디</th>
 								<th>이름</th>
 								<th>직급</th>
-								<th>지역</th>
+								<th >지역</th>
 								<th>등록일</th>
 							</tr>
 							</thead>
