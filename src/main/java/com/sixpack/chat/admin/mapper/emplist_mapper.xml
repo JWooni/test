@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sixpack.chat.admin.mapper.emplist_mapper">
+<resultMap type="com.sixpack.chat.admin.domain.EmpListDomain" id="EmpListInfo">
+	<result column="empSeq" property="empSeq"/>
+	<result column="empId" property="empId"/>
+	<result column="empPwd" property="empPwd"/>
+	<result column="empLevel" property="empLevel"/>
+	<result column="empName" property="empName"/>
+	<result column="joinDate" property="joinDate"/>
+	<result column="empRank" property="empRank"/>
+	<result column="empArea" property="empArea"/>
+	<result column="empCategory" property="empCategory"/>
+</resultMap>
+
+<select id="selectEmpList" parameterType="hashmap" resultMap="EmpListInfo">
+	SELECT *
+	from EMP_LIST 
+	<if test="keyword != null">
+		<if test="searchOption.equals('id')">where empId like CONCAT('%',#{keyword},'%')</if>
+		<if test="searchOption.equals('name')">where empName like CONCAT('%',#{keyword},'%')</if>
+		<if test="searchOption.equals('rank')">where empRank like CONCAT('%',#{keyword},'%')</if>
+		<if test="searchOption.equals('area')">where empArea like CONCAT('%',#{keyword},'%')</if>	
+	</if>
+	order by empSeq desc
+	
+ 	limit #{startIndex}, #{endIndex} 
+</select>
+
+<select id="selectBoard" parameterType="hashmap" resultType="int">
+	SELECT count(1) as empCnt
+	from EMP_LIST 
+	<if test="keyword != null">
+		<if test="searchOption.equals('id')">where empId like CONCAT('%',#{keyword},'%')</if>
+		<if test="searchOption.equals('name')">where empName like CONCAT('%',#{keyword},'%')</if>
+		<if test="searchOption.equals('rank')">where empRank like CONCAT('%',#{keyword},'%')</if>
+		<if test="searchOption.equals('area')">where empArea like CONCAT('%',#{keyword},'%')</if>	
+	</if>
+</select>
+
+</mapper>
