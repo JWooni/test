@@ -21,7 +21,8 @@
   </environments>
   <!-- 쿼리문을 가진 XML을 연결   -->
   <mappers>
-     <mapper resource="com/sixpack/admin/mapper/emplist_mapper.xml"/> 
+     <mapper resource="com/sixpack/chat/admin/mapper/emplist_mapper.xml"/> 
+     <mapper resource="com/sixpack/chat/admin/mapper/empdetail_mapper.xml"/> 
 
 
 

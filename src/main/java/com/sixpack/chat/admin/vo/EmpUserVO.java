@@ -1,6 +1,6 @@
-package com.sixpack.admin.domain;
+package com.sixpack.chat.admin.vo;
 
-public class EmpListDomain {
+public class EmpUserVO {
 
 	private int empSeq, empLevel;
 	private String empId, empPwd, empName, empRank, empArea, joinDate, empCategory;

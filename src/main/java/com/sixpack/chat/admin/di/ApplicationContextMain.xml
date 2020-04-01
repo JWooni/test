@@ -7,9 +7,9 @@
 	
 	<!-- annotation 의존성주입 -->
 	<context:annotation-config/>
-	<context:component-scan base-package="com.sixpack.admin.dao.*"/>
-	<context:component-scan base-package="com.sixpack.admin.dao"/>
-	<context:component-scan base-package="com.sixpack.admin.service.*"/>
-	<context:component-scan base-package="com.sixpack.admin.service"/>
+	<context:component-scan base-package="com.sixpack.chat.admin.dao.*"/>
+	<context:component-scan base-package="com.sixpack.chat.admin.dao"/>
+	<context:component-scan base-package="com.sixpack.chat.admin.service.*"/>
+	<context:component-scan base-package="com.sixpack.chat.admin.service"/>
 
 </beans>

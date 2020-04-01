@@ -1,7 +1,8 @@
-package com.sixpack.admin.dao;
+package com.sixpack.chat.admin.dao;
 
 import java.io.IOException;
 import java.io.Reader;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -11,8 +12,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.springframework.stereotype.Component;
 
 import com.ibatis.common.resources.Resources;
-import com.sixpack.admin.domain.EmpListDomain;
-import com.sixpack.admin.vo.ListVO;
+import com.sixpack.chat.admin.domain.EmpListDomain;
 
 @Component
 public class EmpListDao {
@@ -25,7 +25,7 @@ public class EmpListDao {
 
 			Reader reader = null;
 			try {
-				reader = Resources.getResourceAsReader("com/sixpack/admin/mapper/mybatis_config.xml");
+				reader = Resources.getResourceAsReader("com/sixpack/chat/admin/mapper/mybatis_config.xml");
 				SqlSessionFactoryBuilder ssfb = new SqlSessionFactoryBuilder();
 				ssf = ssfb.build(reader);
 				if (reader != null) {
@@ -39,5 +39,22 @@ public class EmpListDao {
 	} // getSessionFactory
 	
 	////////////////////////////////////////////////////////////////////////////////////////////////
+	
+	public List<EmpListDomain> selectEmpList(Map<String, Object> searchMap){
+		SqlSession ss = getSessionFactory().openSession();
+		List<EmpListDomain> list = ss.selectList("selectEmpList", searchMap);
+		ss.close();
+		
+		return list;
+	} //selectEmpList
+	
+	public int EmpListCnt(Map<String, Object> searchMap){
+		SqlSession ss = getSessionFactory().openSession();
+		int result = 0;
+		result = ss.selectOne("selectBoard", searchMap);
+		ss.close();
+		
+		return result;
+	}
 	
 } // class

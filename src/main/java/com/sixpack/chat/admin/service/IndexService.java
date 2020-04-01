@@ -1,4 +1,4 @@
-package com.sixpack.admin.service;
+package com.sixpack.chat.admin.service;
 
 import org.springframework.stereotype.Component;
 

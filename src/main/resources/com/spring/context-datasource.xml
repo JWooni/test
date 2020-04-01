@@ -8,13 +8,17 @@
 		<jdbc:script location= "classpath:/db/sampledb.sql"/>
 	</jdbc:embedded-database>
     
-    <!-- hsql
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
         <property name="driverClassName" value="net.sf.log4jdbc.DriverSpy"/>
-        <property name="url" value="jdbc:log4jdbc:hsqldb:hsql://localhost/sampledb"/>
-        <property name="username" value="sa"/>
+        <property name="url" value="jdbc:mariadb://sixpack4ever.cafe24.com:3306/sixpack4ever" />
+        <property name="username" value="sixpack4ever"/>
+        <property name="password" value="dkwowjddns2!"/>
     </bean>
-    -->  
+<!--     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close"> -->
+<!--         <property name="driverClassName" value="net.sf.log4jdbc.DriverSpy"/> -->
+<!--         <property name="url" value="jdbc:log4jdbc:hsqldb:hsql://localhost/sampledb"/> -->
+<!--         <property name="username" value="sa"/> -->
+<!--     </bean> -->
     
     <!-- Mysql  
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
