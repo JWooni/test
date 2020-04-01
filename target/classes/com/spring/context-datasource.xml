@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
@@ -53,3 +54,60 @@
     -->
     
 </beans>
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+        http://www.springframework.org/schema/jdbc  http://www.springframework.org/schema/jdbc/spring-jdbc-4.0.xsd">
+	
+	<jdbc:embedded-database id="dataSource" type="HSQL">
+		<jdbc:script location= "classpath:/db/sampledb.sql"/>
+	</jdbc:embedded-database>
+    
+
+    <bean id="dataSourceSpied" class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
+        <property name="driverClass" value="org.mariadb.jdbc.Driver"></property>
+        <property name="url" value="jdbc:mariadb://sixpack4ever.cafe24.com:3306/sixpack4ever"></property>
+        <property name="username" value="sixpack4ever"></property>
+        <property name="password" value="dkwowjddns2!"></property>
+    </bean>
+    
+    <bean id="dataSource" class="net.sf.log4jdbc.Log4jdbcProxyDataSource">
+        <constructor-arg ref="dataSourceSpied" />
+        <property name="logFormatter">
+            <bean class="net.sf.log4jdbc.tools.Log4JdbcCustomFormatter">
+                <property name="loggingType" value="MULTI_LINE" />
+                <property name="sqlPrefix" value="SQL         :  "/>
+            </bean>
+        </property>
+    </bean>
+    
+    <!-- hsql
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="net.sf.log4jdbc.DriverSpy"/>
+        <property name="url" value="jdbc:log4jdbc:hsqldb:hsql://localhost/sampledb"/>
+        <property name="username" value="sa"/>
+    </bean>
+    -->  
+    
+    <!-- Mysql  
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://127.0.0.1:3306/example" />
+        <property name="username" value="user"/>
+        <property name="password" value="password"/>
+    </bean>
+    -->
+    
+    <!-- oracle
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+        <property name="url" value="jdbc:oracle:thin:@127.0.0.1:1521:example" />
+        <property name="username" value="user"/>
+        <property name="password" value="password"/>
+    </bean>
+    -->
+    
+</beans>
+>>>>>>> refs/heads/master
