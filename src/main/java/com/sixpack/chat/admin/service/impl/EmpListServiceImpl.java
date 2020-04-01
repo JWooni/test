@@ -30,7 +30,7 @@ public class EmpListServiceImpl implements EmpListService {
 	@Autowired
 	private EmpDetailDao ed_dao;
 	
-	private static final String UPLOAD_PATH = "C:\\Users\\JWKim\\Desktop\\fileupload";	
+	private static final String UPLOAD_PATH = "";	
 	
 //	C:\\Users\\JWKim\\Desktop\\fileupload
 	// 전체 조회

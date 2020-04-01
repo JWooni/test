@@ -35,7 +35,6 @@ public class EmpController {
 	@Autowired
 	private EmpListServiceImpl els;
 //	private IndexService is;
-
 	
 	///////////////////////////////////// 화면이동/////////////////////////////////////////////
 	@RequestMapping(value = "/empList.do", method = { GET, POST })
