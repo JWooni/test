@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration>
     <Appenders>
@@ -30,36 +29,4 @@
         </Root>
     </Loggers>
 </Configuration>
-=======
-<?xml version="1.0" encoding="UTF-8"?>
-<Configuration>
-    <Appenders>
-        <Console name="console" target="SYSTEM_OUT">
-            <PatternLayout pattern="%d %5p [%c] %m%n" />
-        </Console>
-    </Appenders>
-    <Loggers>
-        <Logger name="org.springframework" level="INFO" additivity="false">
-            <AppenderRef ref="console" />
-        </Logger>
-    	<Logger name="com" level="DEBUG" additivity="false">
-            <AppenderRef ref="console" />
-        </Logger>
-    	<Logger name="java.sql" level="INFO" additivity="false">
-			<AppenderRef ref="general" />
-		 </Logger>
-		 <Logger name="jdbc.audit" level="INFO" additivity="false">
-			<AppenderRef ref="general" />
-		 </Logger>
-		 <Logger name="jdbc.resultset" level="INFO" additivity="false">
-			<AppenderRef ref="general" />
-		 </Logger>
-		 <Logger name="log4jdbc.debug" level="INFO" additivity="false">
-			<AppenderRef ref="general" />
-		 </Logger>
-        <Root level="INFO">
-            <AppenderRef ref="console" />
-        </Root>
-    </Loggers>
-</Configuration>
->>>>>>> refs/heads/master
+

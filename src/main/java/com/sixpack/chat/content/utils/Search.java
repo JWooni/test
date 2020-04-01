@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package com.sixpack.chat.content.utils;
 
 public class Search extends Pagination{
@@ -21,27 +20,4 @@ public class Search extends Pagination{
 		this.keyword = keyword;
 	}
 }
-=======
-package com.sixpack.chat.content.utils;
 
-public class Search extends Pagination{
-
-	private String searchType;
-	private String keyword;	
-
-			
-
-	public String getSearchType() {
-		return searchType;
-	}
-	public void setSearchType(String searchType) {
-		this.searchType = searchType;
-	}	
-	public String getKeyword() {
-		return keyword;
-	}
-	public void setKeyword(String keyword) {
-		this.keyword = keyword;
-	}
-}
->>>>>>> refs/heads/master
