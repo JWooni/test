@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sixpack.chat.admin.mapper.empdetail_mapper">
+<resultMap type="com.sixpack.chat.admin.domain.EmpDetailDomain" id="EmpDetailInfo">
+	<result column="empSeq" property="empSeq"/>
+	<result column="empId" property="empId"/>
+	<result column="empPwd" property="empPwd"/>
+	<result column="empLevel" property="empLevel"/>
+	<result column="empName" property="empName"/>
+	<result column="joinDate" property="joinDate"/>
+	<result column="empRank" property="empRank"/>
+	<result column="empArea" property="empArea"/>
+	<result column="empCategory" property="empCategory"/>
+</resultMap>
+
+<select id="selectEmpDetail" parameterType="String" resultMap="EmpDetailInfo">
+	SELECT *
+	FROM EMP_LIST A
+	LEFT OUTER JOIN
+	 (
+		SELECT MAX(B.fileDAte), B.*
+			FROM EMP_FILE B
+			GROUP BY B.empSeq
+	) T
+	ON (T.empSeq = A.empSeq)
+	WHERE A.empSeq = #{value}
+	
+</select>
+
+<update id="updateEmpUser" parameterType="com.sixpack.chat.admin.vo.EmpUserVO">
+	update EMP_LIST set
+		empPwd = #{empPwd},
+		empName = #{empName},
+		empRank = #{empRank},
+		empArea = #{empArea}
+	where empId = #{empId}
+</update>
+
+<delete id="deleteEmpUser" parameterType="String">
+	delete from EMP_LIST
+	where empId = #{value}
+</delete>
+
+<insert id="insertEmpUser" parameterType="com.sixpack.chat.admin.vo.EmpUserVO" useGeneratedKeys="true" keyProperty="empSeq">
+	insert into EMP_LIST (empId, empPwd, empName, empRank, empArea, joinDate)
+	values (#{empId},#{empPwd},#{empName},#{empRank},#{empArea},NOW())
+</insert>
+
+<!-- 아이디 확인 -->
+<select id="idCheck" parameterType="String" resultType="int">
+ 	select count(*) cnt	
+ 	from EMP_LIST 
+ 	where empId = #{empId}
+</select>
+
+<insert id="insertFile" parameterType="com.sixpack.chat.admin.vo.FileVO">
+	insert into EMP_FILE (fileName, filePath, fileDate, originalFileName, empSeq)
+	values (#{fileName}, #{filePath}, NOW(), #{originalFileName}, #{empSeq})
+</insert>
+
+<!-- 
+<select id="selectFile" parameterType="String">
+SELECT *
+	FROM EMP_LIST A,
+	 (
+		SELECT MAX(B.fileDAte), B.*
+			FROM EMP_FILE B
+			GROUP BY B.empSeq
+		) T
+	
+	WHERE T.empSeq = A.empSeq AND A.empSeq = #{empSeq}
+</select>
+ -->
+ 
+</mapper>

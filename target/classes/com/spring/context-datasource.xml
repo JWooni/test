@@ -7,15 +7,14 @@
 	<jdbc:embedded-database id="dataSource" type="HSQL">
 		<jdbc:script location= "classpath:/db/sampledb.sql"/>
 	</jdbc:embedded-database>
-    
-
+   
     <bean id="dataSourceSpied" class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
         <property name="driverClass" value="org.mariadb.jdbc.Driver"></property>
         <property name="url" value="jdbc:mariadb://sixpack4ever.cafe24.com:3306/sixpack4ever"></property>
         <property name="username" value="sixpack4ever"></property>
         <property name="password" value="dkwowjddns2!"></property>
     </bean>
-    
+<!--    
     <bean id="dataSource" class="net.sf.log4jdbc.Log4jdbcProxyDataSource">
         <constructor-arg ref="dataSourceSpied" />
         <property name="logFormatter">
@@ -25,14 +24,19 @@
             </bean>
         </property>
     </bean>
-    
+-->    
     <!-- hsql
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
         <property name="driverClassName" value="net.sf.log4jdbc.DriverSpy"/>
-        <property name="url" value="jdbc:log4jdbc:hsqldb:hsql://localhost/sampledb"/>
-        <property name="username" value="sa"/>
+        <property name="url" value="jdbc:mariadb://sixpack4ever.cafe24.com:3306/sixpack4ever" />
+        <property name="username" value="sixpack4ever"/>
+        <property name="password" value="dkwowjddns2!"/>
     </bean>
-    -->  
+<!--     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close"> -->
+<!--         <property name="driverClassName" value="net.sf.log4jdbc.DriverSpy"/> -->
+<!--         <property name="url" value="jdbc:log4jdbc:hsqldb:hsql://localhost/sampledb"/> -->
+<!--         <property name="username" value="sa"/> -->
+<!--     </bean> -->
     
     <!-- Mysql  
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
